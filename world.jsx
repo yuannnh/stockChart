@@ -9,9 +9,9 @@ class World extends React.Component {
     ]
 
     return (
-      <div>
-        { a.map (i => <p>{ `Ligne ${i.toUpperCase ()}` }</p>) }
-      </div>
+      <ul>
+        { a.map (i => <li>{ `Ligne ${i.toUpperCase ()}` }</li>) }
+      </ul>
     )
   }
 }
