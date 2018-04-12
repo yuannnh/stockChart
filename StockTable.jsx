@@ -50,10 +50,11 @@ class StockTable extends React.Component {
 	}
 
 	updateData(stock, id, value){
+		//console.log('parent update is called')
 		var d = this.state.data;
 		d[stock][id] = value;
 		this.setState({data:d},function(){
-			console.log(this.state.data);
+			//console.log(this.state.data);
 		});
 	}
 
@@ -82,7 +83,7 @@ class StockTable extends React.Component {
 		})
 
 		var chartData = this.dataForChart();
-		console.log(chartData);
+		//console.log(chartData);
 		return (
 			<div id="table">
 

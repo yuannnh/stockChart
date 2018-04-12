@@ -15,10 +15,21 @@ class Cell extends React.Component {
 		this.handleValid = this.handleValid.bind(this);
 	}
 
+	shouldComponentUpdate(nextProps,nextState){
+		if (nextProps && nextProps.data===this.state.data){
+			//console.log(nextProps.data);
+			return false;
+		}
+		return true;
+	}
+
 	handleOnClick(){
-		this.setState({mode:1});
+		this.setState({mode:1},function(){
+			this.forceUpdate();
+		});
 	}
 	handleChange(e){
+		console.log('value change')
 		this.setState({data:e.target.value})
 	}
 	handleValid(e){
@@ -40,6 +51,7 @@ class Cell extends React.Component {
 	}
 
 	render(){
+		console.log(`${this.props.stock} cell ${this.props.id} rendered`)
 		var content = this.contentMaker() 	
 		return(
 			<div>{content}</div>
